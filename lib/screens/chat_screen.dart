@@ -108,7 +108,7 @@ class MessagesStream extends StatelessWidget {
     return StreamBuilder<QuerySnapshot>(
         stream: _firestore.collection('messages').snapshots(),
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
+          if (!snapshot.hasData) {
             Center(
               child: CircularProgressIndicator(
                 backgroundColor: Colors.lightBlueAccent,
@@ -162,7 +162,7 @@ class MessageBubble extends StatelessWidget {
             sender,
             style: TextStyle(
               fontSize: 12.0,
-              color: Colors.white54,
+              color: Colors.black54,
             ),
           ),
           Material(
